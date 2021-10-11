@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Grade" representedClassName=".Grade" syncable="YES">
+        <attribute name="gradeLevel" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="routes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Route" inverseName="grade" inverseEntity="Route"/>
+    </entity>
+    <entity name="Gym" representedClassName=".Gym" syncable="YES">
+        <attribute name="gymName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="routes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Route" inverseName="gym" inverseEntity="Route"/>
+    </entity>
+    <entity name="Route" representedClassName=".Route" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="color" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteColor" inverseName="routes" inverseEntity="RouteColor"/>
+        <relationship name="grade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Grade" inverseName="routes" inverseEntity="Grade"/>
+        <relationship name="gym" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gym" inverseName="routes" inverseEntity="Gym"/>
+    </entity>
+    <entity name="RouteColor" representedClassName=".RouteColor" syncable="YES">
+        <attribute name="colorData" optional="YES" attributeType="Binary"/>
+        <attribute name="colorName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="routes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Route" inverseName="color" inverseEntity="Route"/>
+    </entity>
+    <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="Grade" positionX="-144" positionY="-18" width="128" height="74"/>
+        <element name="Gym" positionX="-362.484375" positionY="-15.71484375" width="128" height="74"/>
+        <element name="Route" positionX="148.27734375" positionY="-101.8671875" width="128" height="134"/>
+        <element name="RouteColor" positionX="-209.10546875" positionY="-193.578125" width="128" height="103"/>
+        <element name="Session" positionX="-153" positionY="-72" width="128" height="59"/>
+    </elements>
+</model>
